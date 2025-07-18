@@ -1,5 +1,3 @@
-RestauSimplon – API de gestion de commandes pour restaurant
-
 🍽️ RestauSimplon – API de gestion des commandes pour restaurant
 
 Présentation
