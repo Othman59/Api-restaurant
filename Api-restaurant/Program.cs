@@ -18,10 +18,10 @@ builder.Services.AddSwaggerGen(c =>
     {
         Title = "Restaurant API",
         Version = "v1",
-        Description = "Une API pour g�rer les commandes d'un restaurant",
+        Description = "Une API pour gérer les commandes d'un restaurant",
         Contact = new OpenApiContact
         {
-            Name = "Lo�c, Abdellah , Othman, Nicolas",
+            Name = "Loïc, Abdellah , Othman, Nicolas",
             Email = "nephtyse19@hotmail.fr",
             Url = new Uri("https://github.com/abdellah59/Api-restaurant")
         }
@@ -42,6 +42,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+// ENDPOINTS POUR LA GESTION DES CLIENTS
 
 // GET tous les clients
 app.MapGet("/clients", async (RestaurantDb db) =>
@@ -96,9 +97,9 @@ app.MapDelete("/clients/{id}", async (int id, RestaurantDb db) =>
 
 // ENDPOINTS POUR LA GESTION DES COMMANDES
 
-// Endpoint pour cr�er une commande
+// Endpoint pour creer une commande
 
-app.MapPost("/commandes", async (CommandeItemDTO dto, RestaurantDb db) =>
+app.MapPost("api/commandes/creation", async (CommandeItemDTO dto, RestaurantDb db) =>
 {
     if (dto.ArticleIds == null || !dto.ArticleIds.Any())
     {
@@ -133,11 +134,15 @@ app.MapPost("/commandes", async (CommandeItemDTO dto, RestaurantDb db) =>
     await db.SaveChangesAsync();
 
     return Results.Created($"/commandes/{commande.Id}", commande);
-});
+})
+
+.WithName("CreationCommande")
+.WithTags("Commandes")
+.WithMetadata(new SwaggerOperationAttribute(summary: "Crée une nouvelle commande", description: "Ajoute une commande dans la base de données"));
 
 // Endpoint pour Consulter les commandes d'un client
 
-app.MapGet("/commandes-clients/{clientId}", async (int clientId, RestaurantDb db) =>
+app.MapGet("api/commandes/client", async (int clientId, RestaurantDb db) =>
 {
     var commandes = await db.Commandes
         .Where(c => c.ClientId == clientId)
@@ -145,12 +150,15 @@ app.MapGet("/commandes-clients/{clientId}", async (int clientId, RestaurantDb db
         .ToListAsync();
 
     return Results.Ok(commandes);
-});
+})
 
+.WithName("ConsulterCommandeClient")
+.WithTags("Commandes")
+.WithMetadata(new SwaggerOperationAttribute(summary: "Consulter les commandes d'un client", description: "Permet de Consulter les commandes d'un client par ID du client"));
 
 // Endpoint pour Consulter les commandes par date
 
-app.MapGet("/commandes/date/{date}", async (DateTime date, RestaurantDb db) =>
+app.MapGet("api/commandes/date", async (DateTime date, RestaurantDb db) =>
 {
     var commandes = await db.Commandes
         .Where(c => c.Date.Date == date.Date)
@@ -158,11 +166,14 @@ app.MapGet("/commandes/date/{date}", async (DateTime date, RestaurantDb db) =>
         .ToListAsync();
 
     return Results.Ok(commandes);
-});
+})
+.WithName("ConsulterCommandeDate")
+.WithTags("Commandes")
+.WithMetadata(new SwaggerOperationAttribute(summary: "Consulter les commandes par date", description: "Permet de Consulter les commandes réalisées par date "));
 
 // Endpoint pot Modifier le statut de livraison
 
-app.MapPut("/commandes/{id}/statut", async (int id, string nouveauStatut, RestaurantDb db) =>
+app.MapPut("api/commandes/statut", async (int id, string nouveauStatut, RestaurantDb db) =>
 {
     var commande = await db.Commandes.FindAsync(id);
     if (commande == null)
@@ -172,19 +183,28 @@ app.MapPut("/commandes/{id}/statut", async (int id, string nouveauStatut, Restau
     await db.SaveChangesAsync();
 
     return Results.Ok(commande);
-});
+})
+
+.WithName("ModifierStatutLivraison")
+.WithTags("Commandes")
+.WithMetadata(new SwaggerOperationAttribute(summary: "Modifier le statut de livraison", description: "Permet de Modifier le statut de livraison des commandes réalisées par ID"));
 
 // Commandes en attente de livraison
 
-app.MapGet("/commandes/en-attente", async (RestaurantDb db) =>
+app.MapGet("api/commandes/en-cours", async (RestaurantDb db) =>
 {
     var commandes = await db.Commandes
         .Where(c => c.StatutLivraison == "En cours")
         .ToListAsync();
 
     return Results.Ok(commandes);
-});
+})
 
+.WithName("ConsulterCommandeEncours")
+.WithTags("Commandes")
+.WithMetadata(new SwaggerOperationAttribute(summary: "Modifier le statut de livraison", description: "Permet de Consulter les commandes en cours"));
+
+// ENDPOINTS POUR LA GESTION DES ARTICLES
 
 // GET tous les articles
 app.MapGet("/articles", async (RestaurantDb db) =>
@@ -233,9 +253,7 @@ app.MapDelete("/articles/{id}", async (int id, RestaurantDb db) =>
     return Results.NoContent();
 });
 
-
 DbInitializer.Database(app.Services);
-
 
 app.Run();
 
