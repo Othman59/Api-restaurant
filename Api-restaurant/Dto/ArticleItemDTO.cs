@@ -6,11 +6,11 @@ namespace Api_restaurant.Dto
     {
         public int Id { get; set; }
         public string? Nom { get; set; }
-        public int Prix { get; set; }
+        public decimal Prix { get; set; }
         public string? Categorie { get; set; }
 
         public ArticleItemDTO() { }
-        public ArticleItemDTO(Articles ArticlesItem) =>
+        public ArticleItemDTO(Article ArticlesItem) =>
 
         (Id, Nom, Prix, Categorie) = (ArticlesItem.Id, ArticlesItem.Nom, ArticlesItem.Prix, ArticlesItem.Categorie);
     }

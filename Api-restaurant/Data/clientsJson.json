@@ -1,0 +1,102 @@
+[
+  {
+    "Nom": "Dupont",
+    "Prenom": "Jean",
+    "Telephone": "0678452136",
+    "Email": "jean.dupont8362@yopmail.com",
+    "NumeroDeRue": "10",
+    "NomDeRue": "Rue de Béthune",
+    "Codepostal": "59000",
+    "Ville": "Lille"
+  },
+  {
+    "Nom": "Durand",
+    "Prenom": "Claire",
+    "Telephone": "0789651247",
+    "Email": "claire.durand2951@yopmail.com",
+    "NumeroDeRue": "25",
+    "NomDeRue": "Place Rihour",
+    "Codepostal": "59800",
+    "Ville": "Lille"
+  },
+  {
+    "Nom": "Morel",
+    "Prenom": "Luc",
+    "Telephone": "0678452138",
+    "Email": "luc.morel1034@yopmail.com",
+    "NumeroDeRue": "15",
+    "NomDeRue": "Boulevard de la Liberté",
+    "Codepostal": "59800",
+    "Ville": "Lille"
+  },
+  {
+    "Nom": "Martin",
+    "Prenom": "Sophie",
+    "Telephone": "0678459987",
+    "Email": "sophie.martin7648@yopmail.com",
+    "NumeroDeRue": "12",
+    "NomDeRue": "Avenue Charles Saint-Venant",
+    "Codepostal": "59000",
+    "Ville": "Lille"
+  },
+  {
+    "Nom": "Lemoine",
+    "Prenom": "Marie",
+    "Telephone": "0765842136",
+    "Email": "marie.lemoine5012@yopmail.com",
+    "NumeroDeRue": "5",
+    "NomDeRue": "Rue Solférino",
+    "Codepostal": "59000",
+    "Ville": "Lille"
+  },
+  {
+    "Nom": "Petit",
+    "Prenom": "Paul",
+    "Telephone": "0789632114",
+    "Email": "paul.petit2174@yopmail.com",
+    "NumeroDeRue": "30",
+    "NomDeRue": "Rue Nationale",
+    "Codepostal": "59000",
+    "Ville": "Lille"
+  },
+  {
+    "Nom": "Girard",
+    "Prenom": "Alice",
+    "Telephone": "0678123476",
+    "Email": "alice.girard9430@yopmail.com",
+    "NumeroDeRue": "45",
+    "NomDeRue": "Rue Esquermoise",
+    "Codepostal": "59000",
+    "Ville": "Lille"
+  },
+  {
+    "Nom": "Bertrand",
+    "Prenom": "Hugo",
+    "Telephone": "0765123984",
+    "Email": "hugo.bertrand3328@yopmail.com",
+    "NumeroDeRue": "60",
+    "NomDeRue": "Rue Gambetta",
+    "Codepostal": "59800",
+    "Ville": "Lille"
+  },
+  {
+    "Nom": "Fabre",
+    "Prenom": "Emma",
+    "Telephone": "0789512647",
+    "Email": "emma.fabre7431@yopmail.com",
+    "NumeroDeRue": "18",
+    "NomDeRue": "Place du Théâtre",
+    "Codepostal": "59000",
+    "Ville": "Lille"
+  },
+  {
+    "Nom": "Blanc",
+    "Prenom": "Julien",
+    "Telephone": "0678456798",
+    "Email": "julien.blanc8896@yopmail.com",
+    "NumeroDeRue": "22",
+    "NomDeRue": "Rue Faidherbe",
+    "Codepostal": "59000",
+    "Ville": "Lille"
+  }
+]

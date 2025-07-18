@@ -1,23 +1,14 @@
 ﻿namespace Api_restaurant.Classes
     {
-        public class Commandes
+        public class Commande
         {
-            public int Id { get; set; }
+        public int Id { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
+        public decimal MontantTotal { get; set; }
+        public string StatutLivraison { get; set; } = "En cours";
 
-            public Clients clients { get; set; } 
+        public int ClientId { get; set; }
 
-        public List<Articles> Articles { get; set; } = new List<Articles>();
-
-            public DateTime DateCommande { get; set; } = DateTime.Now;
-
-            public decimal CalculerTotal()
-            {
-                return Articles.Sum(a => a.Prix);
-            }
-
-            public override string ToString()
-            {
-                return $"Commande #{Id} - Client: {clients.Nom} - Date: {DateCommande:d} - Total: {CalculerTotal():C}";
-            }
-        }
+        public List<CommandeArticle> CommandeArticles { get; set; } = new();
+    }
     }
