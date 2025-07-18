@@ -64,9 +64,13 @@ Interface double : employés (gestion menu) / clients (commandes)
 🛠️ Technologies utilisées
 
 Backend : ASP.NET Core
+
 ORM : Entity Framework Core
+
 Base de données : SQL Server / SQLite (selon environnement)
+
 Documentation : Swagger
+
 Contrôle de version : Git / GitHub
 
 
